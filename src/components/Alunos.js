@@ -8,10 +8,16 @@ export class Alunos extends React.Component{
 
         this.state = {
             alunos: [
-                {'id': 1, 'nome': 'Luis Fabio', 'email':'luisf@gmail.com'},
-                {'id': 13, 'nome': 'Leandro', 'email':'leandro13@gmail.com'}
             ]
         }
+    }
+
+    componentDidMount(){
+        fetch("http://localhost:3000/alunos")
+        .then(resposta => resposta.json() )
+        .then(dados => {
+            this.setState({alunos: dados})
+        })
     }
 
     render(){
