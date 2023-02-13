@@ -1,5 +1,6 @@
 import React from 'react'
 import { Button, Table } from 'react-bootstrap';
+import axios from "axios";
 
 export class Alunos extends React.Component{
 
@@ -24,15 +25,26 @@ export class Alunos extends React.Component{
         })
     }
 
+    
     deletarAluno = (id) => {
-        //alert("Metodo chamado");
         fetch("http://localhost:3000/alunos/"+id, {method: 'DELETE'})
         .then(resposta => {
             if(resposta.ok){
+                alert("Post deleted!");
                 this.buscarAluno();
             }
         })
-    }
+    } 
+
+    /*
+    deletarAluno(id) {
+        axios
+          .delete("http://localhost:3000/alunos/"+id)
+          .then(() => {
+            alert("Post deleted!");
+            this.buscarAluno();
+          });
+      } */
 
 
     render(){
