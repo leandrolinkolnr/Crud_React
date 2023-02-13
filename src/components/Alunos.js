@@ -1,5 +1,5 @@
 import React from 'react'
-import { Table } from 'react-bootstrap';
+import { Button, Table } from 'react-bootstrap';
 
 export class Alunos extends React.Component{
 
@@ -13,12 +13,27 @@ export class Alunos extends React.Component{
     }
 
     componentDidMount(){
+        this.buscarAluno();
+    }
+
+    buscarAluno = () => {
         fetch("http://localhost:3000/alunos")
         .then(resposta => resposta.json() )
         .then(dados => {
             this.setState({alunos: dados})
         })
     }
+
+    deletarAluno = (id) => {
+        //alert("Metodo chamado");
+        fetch("http://localhost:3000/alunos/"+id, {method: 'DELETE'})
+        .then(resposta => {
+            if(resposta.ok){
+                this.buscarAluno();
+            }
+        })
+    }
+
 
     render(){
     return(
@@ -36,7 +51,7 @@ export class Alunos extends React.Component{
                 <tr>
                     <td>{ aluno.nome }</td>
                     <td>{ aluno.email }</td>
-                    <td>Atualizar / Excluir</td>
+                    <td>Atualizar / <Button variant="danger" onClick={() => this.deletarAluno(aluno.id)} >Excluir</Button> </td>
                 </tr> 
                 ) 
             }

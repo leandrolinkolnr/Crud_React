@@ -1,16 +1,16 @@
 {
-    "alunos": [
-      {
-        "nome": "Matheus Silva",
-        "email": "matsilva@gmail.com"
-      },
-      {
-        "nome": "Fabricio Sousa",
-        "email": "fabricios@hotmail.com"
-      },
-      {
-        "nome": "Felipe nunes",
-        "email": "felnunes@gmail.com"
-      }
-    ]
-  }
+  "alunos": [
+    {
+      "nome": "Matheus Silva",
+      "email": "matsilva@gmail.com"
+    },
+    {
+      "nome": "Fabricio Sousa",
+      "email": "fabricioSilva@hotmail.com"
+    },
+    {
+      "nome": "Felipe nunes",
+      "email": "felnunes@gmail.com"
+    }
+  ]
+}
