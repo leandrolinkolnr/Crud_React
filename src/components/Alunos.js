@@ -7,7 +7,10 @@ export class Alunos extends React.Component{
         super(props);
 
         this.state = {
-            alunos: []
+            alunos: [
+                {'id': 1, 'nome': 'Luis Fabio', 'email':'luisf@gmail.com'},
+                {'id': 13, 'nome': 'Leandro', 'email':'leandro13@gmail.com'}
+            ]
         }
     }
 
@@ -22,11 +25,16 @@ export class Alunos extends React.Component{
                 </tr>
             </thead>
             <tbody>
+            {
+                this.state.alunos.map((aluno) =>
                 <tr>
-                    <td>Leandro</td>
-                    <td>leandro@gmail.com</td>
+                    <td>{ aluno.nome }</td>
+                    <td>{ aluno.email }</td>
                     <td>Atualizar / Excluir</td>
-                </tr>
+                </tr> 
+                ) 
+            }
+
             </tbody>
         </Table>
     )
