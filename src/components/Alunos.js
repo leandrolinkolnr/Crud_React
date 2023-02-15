@@ -31,8 +31,8 @@ export class Alunos extends React.Component{
         fetch("http://localhost:3000/alunos/"+id, {method: 'DELETE'})
         .then(resposta => {
             if(resposta.ok){
-                alert("Aluno deletado com sucesso!");
                 this.buscarAluno();
+                alert("Aluno deletado com sucesso!");
             }
         })
     } 
@@ -47,20 +47,24 @@ export class Alunos extends React.Component{
           });
       } */
 
-    cadastraAluno = (aluno) => {
+
+
+      cadastraAluno(aluno) {
         fetch("http://localhost:3000/alunos/", {method: 'POST',
         headers: {'Content-Type':'application/json'},
         body: JSON.stringify(aluno)
     })
         .then(resposta => {
             if(resposta.ok){
-                alert("Aluno cadastrado com sucesso!");
                 this.buscarAluno();
+                alert("Aluno cadastrado com sucesso!");
             } else {
                 alert("Não foi possivel cadastrar o aluno!");
             }
-        })
+        }) 
     }
+
+
 
 renderTabela(){
     return  <Table striped bordered hover>
@@ -92,12 +96,12 @@ render()    {
             <Form>
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                 <Form.Label>Nome</Form.Label>
-                <Form.Control type="text" placeholder="Digite o nome do aluno" value={this.aluno.nome} onChange={this.atualizaNome} />
+                <Form.Control type="text" placeholder="Digite o nome do aluno" value={this.state.nome} onChange={this.atualizaNome} />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Email</Form.Label>
-                <Form.Control type="email" placeholder="Digite o email do aluno" value={this.aluno.email} onChange={this.atualizaEmail}/>
+                <Form.Control type="email" placeholder="Digite o email do aluno" value={this.state.email} onChange={this.atualizaEmail}/>
                 </Form.Group>
         
                 <Button variant="primary" type="submit" onClick={this.submit}>
@@ -127,14 +131,14 @@ atualizaEmail = (e) => {
 }
 
 
-submit(){
+submit = () => {
     const aluno = {
         id:0,
         nome: this.state.nome,
         email: this.state.email
     }
-
     this.cadastraAluno(aluno);
 }
+
 
 }
