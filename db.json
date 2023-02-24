@@ -1,11 +1,6 @@
 {
   "alunos": [
     {
-      "id": 1,
-      "nome": "Matheus Silva",
-      "email": "matsilva@gmail.com"
-    },
-    {
       "id": 2,
       "nome": "Fabricio Sousa",
       "email": "fabricioSilva@hotmail.com"
@@ -16,14 +11,9 @@
       "email": "testando@out.com"
     },
     {
-      "id": 4,
-      "nome": "testandozz",
-      "email": "testandozz@hotmail.com"
-    },
-    {
-      "id": 7,
-      "nome": "testandoxx",
-      "email": "testandoxx@gmail.com"
+      "nome": "Leandro",
+      "email": "leandro@gmail.com",
+      "id": 4
     }
   ]
 }
